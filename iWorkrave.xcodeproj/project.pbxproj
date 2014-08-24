@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF475F1419AA0B0000949223 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F1319AA0B0000949223 /* main.swift */; };
+		BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F1519AA0B0000949223 /* AppDelegate.swift */; };
+		BF475F1819AA0B0000949223 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1719AA0B0000949223 /* Images.xcassets */; };
+		BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1919AA0B0000949223 /* MainMenu.xib */; };
+		BF475F2719AA0B0100949223 /* iWorkraveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F2619AA0B0100949223 /* iWorkraveTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF475F2119AA0B0100949223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF475F0619AA0B0000949223 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF475F0D19AA0B0000949223;
+			remoteInfo = iWorkrave;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF475F0E19AA0B0000949223 /* iWorkrave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkrave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF475F1219AA0B0000949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF475F1319AA0B0000949223 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BF475F1519AA0B0000949223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF475F1719AA0B0000949223 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF475F1A19AA0B0000949223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWorkraveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF475F2519AA0B0100949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF475F2619AA0B0100949223 /* iWorkraveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWorkraveTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF475F0B19AA0B0000949223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF475F1D19AA0B0100949223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF475F0519AA0B0000949223 = {
+			isa = PBXGroup;
+			children = (
+				BF475F1019AA0B0000949223 /* iWorkrave */,
+				BF475F2319AA0B0100949223 /* iWorkraveTests */,
+				BF475F0F19AA0B0000949223 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF475F0F19AA0B0000949223 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF475F0E19AA0B0000949223 /* iWorkrave.app */,
+				BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF475F1019AA0B0000949223 /* iWorkrave */ = {
+			isa = PBXGroup;
+			children = (
+				BF475F1519AA0B0000949223 /* AppDelegate.swift */,
+				BF475F1719AA0B0000949223 /* Images.xcassets */,
+				BF475F1919AA0B0000949223 /* MainMenu.xib */,
+				BF475F1119AA0B0000949223 /* Supporting Files */,
+			);
+			path = iWorkrave;
+			sourceTree = "<group>";
+		};
+		BF475F1119AA0B0000949223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF475F1219AA0B0000949223 /* Info.plist */,
+				BF475F1319AA0B0000949223 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF475F2319AA0B0100949223 /* iWorkraveTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF475F2619AA0B0100949223 /* iWorkraveTests.swift */,
+				BF475F2419AA0B0100949223 /* Supporting Files */,
+			);
+			path = iWorkraveTests;
+			sourceTree = "<group>";
+		};
+		BF475F2419AA0B0100949223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF475F2519AA0B0100949223 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF475F0D19AA0B0000949223 /* iWorkrave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkrave" */;
+			buildPhases = (
+				BF475F0A19AA0B0000949223 /* Sources */,
+				BF475F0B19AA0B0000949223 /* Frameworks */,
+				BF475F0C19AA0B0000949223 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iWorkrave;
+			productName = iWorkrave;
+			productReference = BF475F0E19AA0B0000949223 /* iWorkrave.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF475F1F19AA0B0100949223 /* iWorkraveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkraveTests" */;
+			buildPhases = (
+				BF475F1C19AA0B0100949223 /* Sources */,
+				BF475F1D19AA0B0100949223 /* Frameworks */,
+				BF475F1E19AA0B0100949223 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF475F2219AA0B0100949223 /* PBXTargetDependency */,
+			);
+			name = iWorkraveTests;
+			productName = iWorkraveTests;
+			productReference = BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF475F0619AA0B0000949223 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Look On My Works Ltd";
+				TargetAttributes = {
+					BF475F0D19AA0B0000949223 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					BF475F1F19AA0B0100949223 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = BF475F0D19AA0B0000949223;
+					};
+				};
+			};
+			buildConfigurationList = BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "iWorkrave" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF475F0519AA0B0000949223;
+			productRefGroup = BF475F0F19AA0B0000949223 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF475F0D19AA0B0000949223 /* iWorkrave */,
+				BF475F1F19AA0B0100949223 /* iWorkraveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF475F0C19AA0B0000949223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF475F1819AA0B0000949223 /* Images.xcassets in Resources */,
+				BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF475F1E19AA0B0100949223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF475F0A19AA0B0000949223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */,
+				BF475F1419AA0B0000949223 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF475F1C19AA0B0100949223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF475F2719AA0B0100949223 /* iWorkraveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF475F2219AA0B0100949223 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF475F0D19AA0B0000949223 /* iWorkrave */;
+			targetProxy = BF475F2119AA0B0100949223 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF475F1919AA0B0000949223 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF475F1A19AA0B0000949223 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF475F2819AA0B0100949223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF475F2919AA0B0100949223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BF475F2B19AA0B0100949223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iWorkrave/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BF475F2C19AA0B0100949223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = iWorkrave/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BF475F2E19AA0B0100949223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iWorkraveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkrave.app/Contents/MacOS/iWorkrave";
+			};
+			name = Debug;
+		};
+		BF475F2F19AA0B0100949223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iWorkraveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkrave.app/Contents/MacOS/iWorkrave";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "iWorkrave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF475F2819AA0B0100949223 /* Debug */,
+				BF475F2919AA0B0100949223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkrave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF475F2B19AA0B0100949223 /* Debug */,
+				BF475F2C19AA0B0100949223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkraveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF475F2E19AA0B0100949223 /* Debug */,
+				BF475F2F19AA0B0100949223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF475F0619AA0B0000949223 /* Project object */;
+}

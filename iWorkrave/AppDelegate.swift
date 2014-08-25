@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
     
+    var popupWindow: NSWindow!
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
@@ -45,8 +47,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func tick() {
         countdownToMicroBreak--
+        if (countdownToMicroBreak == 0) {
+            stopTimer()
+            timeForABreak()
+        }
         countdownToRestBreak--
         updateProgress()
+    }
+    
+    func timeForABreak() {
+        let tfab = TimeForABreak(windowNibName: "TimeForABreak")
+        tfab.showWindow(nil)
+        popupWindow = tfab.window
     }
     
     func updateProgress() {
@@ -66,7 +78,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
-        startTimer()
+        if (countdownToMicroBreak > 0) {
+            startTimer()
+        }
     }
     
     func startTimer() {
@@ -89,8 +103,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func stopTimer() {
-        mainTimer.invalidate()
-        mainTimer = nil
+        if (mainTimer != nil) {
+            mainTimer.invalidate()
+            mainTimer = nil
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {

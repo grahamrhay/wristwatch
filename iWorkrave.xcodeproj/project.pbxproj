@@ -12,6 +12,8 @@
 		BF475F1819AA0B0000949223 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1719AA0B0000949223 /* Images.xcassets */; };
 		BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1919AA0B0000949223 /* MainMenu.xib */; };
 		BF475F2719AA0B0100949223 /* iWorkraveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F2619AA0B0100949223 /* iWorkraveTests.swift */; };
+		BF475F3C19AB8F8300949223 /* TimeForABreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F3A19AB8F8300949223 /* TimeForABreak.swift */; };
+		BF475F3D19AB8F8300949223 /* TimeForABreak.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF475F3B19AB8F8300949223 /* TimeForABreak.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWorkraveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF475F2519AA0B0100949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF475F2619AA0B0100949223 /* iWorkraveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWorkraveTests.swift; sourceTree = "<group>"; };
+		BF475F3A19AB8F8300949223 /* TimeForABreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeForABreak.swift; sourceTree = "<group>"; };
+		BF475F3B19AB8F8300949223 /* TimeForABreak.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeForABreak.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				BF475F1519AA0B0000949223 /* AppDelegate.swift */,
+				BF475F3A19AB8F8300949223 /* TimeForABreak.swift */,
 				BF475F1719AA0B0000949223 /* Images.xcassets */,
 				BF475F1919AA0B0000949223 /* MainMenu.xib */,
+				BF475F3B19AB8F8300949223 /* TimeForABreak.xib */,
 				BF475F1119AA0B0000949223 /* Supporting Files */,
 			);
 			path = iWorkrave;
@@ -191,6 +197,7 @@
 			files = (
 				BF475F1819AA0B0000949223 /* Images.xcassets in Resources */,
 				BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */,
+				BF475F3D19AB8F8300949223 /* TimeForABreak.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF475F3C19AB8F8300949223 /* TimeForABreak.swift in Sources */,
 				BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */,
 				BF475F1419AA0B0000949223 /* main.swift in Sources */,
 			);

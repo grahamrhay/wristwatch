@@ -17,25 +17,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
     
-    var currentSlice = 0
+    var timeRemaining = (60 * 3) + 30 // 3 mins & 30 seconds
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
-        progressIndicator.maxValue = 210
+        progressIndicator.maxValue = Double(timeRemaining)
+        updateProgress()
     }
     
     func tick() {
-        currentSlice++
+        timeRemaining--
         updateProgress()
     }
     
     func updateProgress() {
-        var seconds = currentSlice % 60;
-        var minutes = (currentSlice / 60) % 60;
-        var hours = (currentSlice / 3600);
+        var seconds = timeRemaining % 60
+        var minutes = (timeRemaining / 60) % 60
+        var hours = (timeRemaining / 3600)
         label1.stringValue = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        progressIndicator.incrementBy(Double(currentSlice) - progressIndicator.doubleValue)
+        progressIndicator.incrementBy(Double(timeRemaining) - progressIndicator.doubleValue)
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {

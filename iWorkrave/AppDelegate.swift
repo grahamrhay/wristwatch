@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             userInfo: nil,
             repeats: true)
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
-        let eventMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
+        let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
     }
     
     func tick() {

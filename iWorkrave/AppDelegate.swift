@@ -13,11 +13,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var label1: NSTextField!
+    @IBOutlet weak var restBreakLabel: NSTextField!
+    @IBOutlet weak var restBreakProgress: NSProgressIndicator!
     
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
     
-    var timeRemaining = (60 * 3) + 30 // 3 mins & 30 seconds
+    var countdownToMicroBreak = (60 * 3) + 30 // 3 mins & 30 seconds
+    var countdownToRestBreak = 60 * 45
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
@@ -35,24 +38,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusView.addSubview(menuProgress)
         statusItem.view = statusView
         
-        progressIndicator.maxValue = Double(timeRemaining)
-        menuProgress.maxValue = Double(timeRemaining)
+        progressIndicator.maxValue = Double(countdownToMicroBreak)
+        menuProgress.maxValue = Double(countdownToMicroBreak)
         updateProgress()
     }
     
     func tick() {
-        timeRemaining--
+        countdownToMicroBreak--
+        countdownToRestBreak--
         updateProgress()
     }
     
     func updateProgress() {
-        var seconds = timeRemaining % 60
-        var minutes = (timeRemaining / 60) % 60
-        var hours = (timeRemaining / 3600)
-        label1.stringValue = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        label1.stringValue = formatInterval(countdownToMicroBreak)
+        restBreakLabel.stringValue = formatInterval(countdownToRestBreak)
         
-        progressIndicator.incrementBy(Double(timeRemaining) - progressIndicator.doubleValue)
-        menuProgress.incrementBy(Double(timeRemaining) - menuProgress.doubleValue)
+        progressIndicator.incrementBy(Double(countdownToMicroBreak) - progressIndicator.doubleValue)
+        menuProgress.incrementBy(Double(countdownToMicroBreak) - menuProgress.doubleValue)
+        restBreakProgress.incrementBy(Double(countdownToRestBreak) - progressIndicator.doubleValue)
+    }
+    
+    func formatInterval(totalSeconds: (Int)) -> NSString {
+        var seconds = totalSeconds % 60
+        var minutes = (totalSeconds / 60) % 60
+        var hours = (totalSeconds / 3600)
+        return NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {

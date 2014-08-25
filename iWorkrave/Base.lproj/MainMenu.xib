@@ -14,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="iWorkrave" customModuleProvider="target">
             <connections>
                 <outlet property="label1" destination="Q7R-tf-xRa" id="uCm-oM-ewV"/>
+                <outlet property="progressIndicator" destination="wsB-SK-wjm" id="3NU-Zl-TL8"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -691,6 +692,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-SK-wjm">
+                        <rect key="frame" x="20" y="289" width="434" height="20"/>
+                    </progressIndicator>
                 </subviews>
             </view>
         </window>

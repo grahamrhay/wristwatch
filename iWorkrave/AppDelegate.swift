@@ -11,22 +11,31 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var label1: NSTextField!
     
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
-
+    
+    var currentSlice = 0
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
+        progressIndicator.maxValue = 210
     }
     
     func tick() {
-        let date = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ssZZZZZ"
-        let timestamp = dateFormatter.stringFromDate(date)
-        label1.stringValue = timestamp
+        currentSlice++
+        updateProgress()
+    }
+    
+    func updateProgress() {
+        var seconds = currentSlice % 60;
+        var minutes = (currentSlice / 60) % 60;
+        var hours = (currentSlice / 3600);
+        label1.stringValue = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        progressIndicator.incrementBy(Double(currentSlice) - progressIndicator.doubleValue)
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
@@ -34,7 +43,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startTimer() {
-        tick()
         if (mainTimer == nil) {
             mainTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
                 target: self,

@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let eventMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
     }
     
-    @objc func tick() {
+    func tick() {
         let date = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "HH:mm:ssZZZZZ"

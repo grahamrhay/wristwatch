@@ -13,14 +13,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var label1: NSTextField!
     
-    var timer: NSTimer! = NSTimer()
+    var mainTimer: NSTimer!
+    var waitTimer: NSTimer!
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-            target: self,
-            selector: Selector("tick"),
-            userInfo: nil,
-            repeats: true)
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
     }
@@ -34,11 +30,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
-        NSLog("key pressed")
+        startTimer()
+    }
+    
+    func startTimer() {
+        tick()
+        if (mainTimer == nil) {
+            mainTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                target: self,
+                selector: Selector("tick"),
+                userInfo: nil,
+                repeats: true)
+        }
+        
+        if (waitTimer != nil) {
+            waitTimer.invalidate()
+        }
+        waitTimer = NSTimer.scheduledTimerWithTimeInterval(3.0,
+            target: self,
+            selector: Selector("stopTimer"),
+            userInfo: nil,
+            repeats: false)
+    }
+    
+    func stopTimer() {
+        mainTimer.invalidate()
+        mainTimer = nil
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
-        timer.invalidate()
+        stopTimer()
     }
 }
 

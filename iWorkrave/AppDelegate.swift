@@ -19,10 +19,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var timeRemaining = (60 * 3) + 30 // 3 mins & 30 seconds
     
+    var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
+    var menuProgress: NSProgressIndicator!
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
+        
+        let statusBar = NSStatusBar.systemStatusBar()
+        statusItem = statusBar.statusItemWithLength(-1) // NSVariableStatusItemLength
+        let statusView = NSView(frame: NSMakeRect(0, 0, 40, 20))
+        menuProgress = NSProgressIndicator(frame: NSMakeRect(0, 0, 40, 20))
+        menuProgress.indeterminate = false
+        menuProgress.controlTint = NSControlTint.BlueControlTint
+        statusView.addSubview(menuProgress)
+        statusItem.view = statusView
+        
         progressIndicator.maxValue = Double(timeRemaining)
+        menuProgress.maxValue = Double(timeRemaining)
         updateProgress()
     }
     
@@ -36,7 +50,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var minutes = (timeRemaining / 60) % 60
         var hours = (timeRemaining / 3600)
         label1.stringValue = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        
         progressIndicator.incrementBy(Double(timeRemaining) - progressIndicator.doubleValue)
+        menuProgress.incrementBy(Double(timeRemaining) - menuProgress.doubleValue)
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {

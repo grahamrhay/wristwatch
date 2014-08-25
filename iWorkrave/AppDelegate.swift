@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var label1: NSTextField!
     
-    var timer = NSTimer()
+    var timer: NSTimer! = NSTimer()
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
@@ -21,6 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             selector: Selector("tick"),
             userInfo: nil,
             repeats: true)
+        let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
+        let eventMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
     }
     
     @objc func tick() {
@@ -29,6 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         dateFormatter.dateFormat = "HH:mm:ssZZZZZ"
         let timestamp = dateFormatter.stringFromDate(date)
         label1.stringValue = timestamp
+    }
+    
+    func handlerEvent(aEvent: (NSEvent!)) -> Void {
+        NSLog("key pressed")
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {

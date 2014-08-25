@@ -11,16 +11,28 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet weak var label1: NSTextField!
+    
+    var timer = NSTimer()
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        // Insert code here to initialize your application
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target: self,
+            selector: Selector("tick"),
+            userInfo: nil,
+            repeats: true)
+    }
+    
+    @objc func tick() {
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ssZZZZZ"
+        let timestamp = dateFormatter.stringFromDate(date)
+        label1.stringValue = timestamp
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
-        // Insert code here to tear down your application
+        timer.invalidate()
     }
-
-
 }
 

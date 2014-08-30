@@ -18,8 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
+    var stopTypingTimer: NSTimer!
     
-    var countdownToMicroBreak = (60 * 3) + 30 // 3 mins & 30 seconds
+    var countdownToMicroBreak = 0
     var countdownToRestBreak = 60 * 45
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
@@ -29,10 +30,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         acquirePrivileges()
-        
+        listenForEvents()
+        createStatusBarItem()
+        resetMicrobreak()
+        progressIndicator.maxValue = Double(countdownToMicroBreak)
+        menuProgress.maxValue = Double(countdownToMicroBreak)
+    }
+    
+    func listenForEvents() {
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
-        
+    }
+    
+    func createStatusBarItem() {
         let statusBar = NSStatusBar.systemStatusBar()
         statusItem = statusBar.statusItemWithLength(-1) // NSVariableStatusItemLength
         let statusView = NSView(frame: NSMakeRect(0, 0, 40, 20))
@@ -41,9 +51,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menuProgress.controlTint = NSControlTint.BlueControlTint
         statusView.addSubview(menuProgress)
         statusItem.view = statusView
-        
-        progressIndicator.maxValue = Double(countdownToMicroBreak)
-        menuProgress.maxValue = Double(countdownToMicroBreak)
+    }
+    
+    func resetMicrobreak() {
+        //countdownToMicroBreak = (60 * 3) + 30 // 3 mins & 30 seconds
+        countdownToMicroBreak = 5
         updateProgress()
     }
     
@@ -76,6 +88,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let tfab = TimeForABreak(windowNibName: "TimeForABreak")
         tfab.showWindow(nil)
         popupWindow = tfab.window
+        stillTyping()
+    }
+    
+    func stillTyping() {
+        if (stopTypingTimer != nil) {
+            stopTypingTimer.invalidate()
+        }
+        stopTypingTimer = NSTimer.scheduledTimerWithTimeInterval(3.0,
+            target: self,
+            selector: Selector("stoppedTyping"),
+            userInfo: nil,
+            repeats: false)
+    }
+    
+    func stoppedTyping() {
+        popupWindow.close()
+        resetMicrobreak()
     }
     
     func updateProgress() {
@@ -97,6 +126,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
         if (countdownToMicroBreak > 0) {
             startTimer()
+        } else {
+            stillTyping()
         }
     }
     

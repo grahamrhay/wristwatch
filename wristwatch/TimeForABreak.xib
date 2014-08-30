@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.8"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="TimeForABreak" customModule="iWorkrave" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="TimeForABreak" customModule="wristwatch" customModuleProvider="target">
             <connections>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>

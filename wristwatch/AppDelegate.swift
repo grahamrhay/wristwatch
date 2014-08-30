@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  iWorkrave
+//  wristwatch
 //
 //  Created by Graham on 24/08/2014.
 //  Copyright (c) 2014 Look On My Works Ltd. All rights reserved.
@@ -53,8 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
         if accessEnabled != 1 {
             let alert = NSAlert()
-            alert.messageText = "Enable iWorkrave"
-            alert.informativeText = "Once you have enabled iWorkrave in System Preferences, click OK and restart the app"
+            alert.messageText = "Enable Wristwatch"
+            alert.informativeText = "Once you have enabled Wristwatch in System Preferences, click OK and restart the app"
             alert.beginSheetModalForWindow(self.window, completionHandler: { response in
                 NSApplication.sharedApplication().terminate(self)
             })

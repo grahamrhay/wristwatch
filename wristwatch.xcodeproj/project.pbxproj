@@ -11,7 +11,6 @@
 		BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F1519AA0B0000949223 /* AppDelegate.swift */; };
 		BF475F1819AA0B0000949223 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1719AA0B0000949223 /* Images.xcassets */; };
 		BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1919AA0B0000949223 /* MainMenu.xib */; };
-		BF475F2719AA0B0100949223 /* iWorkraveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F2619AA0B0100949223 /* iWorkraveTests.swift */; };
 		BF475F3C19AB8F8300949223 /* TimeForABreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F3A19AB8F8300949223 /* TimeForABreak.swift */; };
 		BF475F3D19AB8F8300949223 /* TimeForABreak.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF475F3B19AB8F8300949223 /* TimeForABreak.xib */; };
 /* End PBXBuildFile section */
@@ -22,20 +21,18 @@
 			containerPortal = BF475F0619AA0B0000949223 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BF475F0D19AA0B0000949223;
-			remoteInfo = iWorkrave;
+			remoteInfo = wristwatch;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF475F0E19AA0B0000949223 /* iWorkrave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkrave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF475F0E19AA0B0000949223 /* wristwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wristwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF475F1219AA0B0000949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF475F1319AA0B0000949223 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BF475F1519AA0B0000949223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF475F1719AA0B0000949223 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF475F1A19AA0B0000949223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWorkraveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF475F2519AA0B0100949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF475F2619AA0B0100949223 /* iWorkraveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWorkraveTests.swift; sourceTree = "<group>"; };
+		BF475F2019AA0B0100949223 /* wristwatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wristwatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF475F3A19AB8F8300949223 /* TimeForABreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeForABreak.swift; sourceTree = "<group>"; };
 		BF475F3B19AB8F8300949223 /* TimeForABreak.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeForABreak.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,8 +58,7 @@
 		BF475F0519AA0B0000949223 = {
 			isa = PBXGroup;
 			children = (
-				BF475F1019AA0B0000949223 /* iWorkrave */,
-				BF475F2319AA0B0100949223 /* iWorkraveTests */,
+				BF475F1019AA0B0000949223 /* wristwatch */,
 				BF475F0F19AA0B0000949223 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,13 +66,13 @@
 		BF475F0F19AA0B0000949223 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF475F0E19AA0B0000949223 /* iWorkrave.app */,
-				BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */,
+				BF475F0E19AA0B0000949223 /* wristwatch.app */,
+				BF475F2019AA0B0100949223 /* wristwatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF475F1019AA0B0000949223 /* iWorkrave */ = {
+		BF475F1019AA0B0000949223 /* wristwatch */ = {
 			isa = PBXGroup;
 			children = (
 				BF475F1519AA0B0000949223 /* AppDelegate.swift */,
@@ -86,7 +82,7 @@
 				BF475F3B19AB8F8300949223 /* TimeForABreak.xib */,
 				BF475F1119AA0B0000949223 /* Supporting Files */,
 			);
-			path = iWorkrave;
+			path = wristwatch;
 			sourceTree = "<group>";
 		};
 		BF475F1119AA0B0000949223 /* Supporting Files */ = {
@@ -98,29 +94,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BF475F2319AA0B0100949223 /* iWorkraveTests */ = {
-			isa = PBXGroup;
-			children = (
-				BF475F2619AA0B0100949223 /* iWorkraveTests.swift */,
-				BF475F2419AA0B0100949223 /* Supporting Files */,
-			);
-			path = iWorkraveTests;
-			sourceTree = "<group>";
-		};
-		BF475F2419AA0B0100949223 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BF475F2519AA0B0100949223 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF475F0D19AA0B0000949223 /* iWorkrave */ = {
+		BF475F0D19AA0B0000949223 /* wristwatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkrave" */;
+			buildConfigurationList = BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "wristwatch" */;
 			buildPhases = (
 				BF475F0A19AA0B0000949223 /* Sources */,
 				BF475F0B19AA0B0000949223 /* Frameworks */,
@@ -130,14 +109,14 @@
 			);
 			dependencies = (
 			);
-			name = iWorkrave;
-			productName = iWorkrave;
-			productReference = BF475F0E19AA0B0000949223 /* iWorkrave.app */;
+			name = wristwatch;
+			productName = wristwatch;
+			productReference = BF475F0E19AA0B0000949223 /* wristwatch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF475F1F19AA0B0100949223 /* iWorkraveTests */ = {
+		BF475F1F19AA0B0100949223 /* wristwatchTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkraveTests" */;
+			buildConfigurationList = BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "wristwatchTests" */;
 			buildPhases = (
 				BF475F1C19AA0B0100949223 /* Sources */,
 				BF475F1D19AA0B0100949223 /* Frameworks */,
@@ -148,9 +127,9 @@
 			dependencies = (
 				BF475F2219AA0B0100949223 /* PBXTargetDependency */,
 			);
-			name = iWorkraveTests;
-			productName = iWorkraveTests;
-			productReference = BF475F2019AA0B0100949223 /* iWorkraveTests.xctest */;
+			name = wristwatchTests;
+			productName = wristwatchTests;
+			productReference = BF475F2019AA0B0100949223 /* wristwatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -171,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "iWorkrave" */;
+			buildConfigurationList = BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "wristwatch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -184,8 +163,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF475F0D19AA0B0000949223 /* iWorkrave */,
-				BF475F1F19AA0B0100949223 /* iWorkraveTests */,
+				BF475F0D19AA0B0000949223 /* wristwatch */,
+				BF475F1F19AA0B0100949223 /* wristwatchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF475F2719AA0B0100949223 /* iWorkraveTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +212,7 @@
 /* Begin PBXTargetDependency section */
 		BF475F2219AA0B0100949223 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF475F0D19AA0B0000949223 /* iWorkrave */;
+			target = BF475F0D19AA0B0000949223 /* wristwatch */;
 			targetProxy = BF475F2119AA0B0100949223 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -333,7 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = iWorkrave/Info.plist;
+				INFOPLIST_FILE = wristwatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -344,7 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = iWorkrave/Info.plist;
+				INFOPLIST_FILE = wristwatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -363,10 +341,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = iWorkraveTests/Info.plist;
+				INFOPLIST_FILE = wristwatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkrave.app/Contents/MacOS/iWorkrave";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wristwatch.app/Contents/MacOS/wristwatch";
 			};
 			name = Debug;
 		};
@@ -379,17 +357,17 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = iWorkraveTests/Info.plist;
+				INFOPLIST_FILE = wristwatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iWorkrave.app/Contents/MacOS/iWorkrave";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wristwatch.app/Contents/MacOS/wristwatch";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "iWorkrave" */ = {
+		BF475F0919AA0B0000949223 /* Build configuration list for PBXProject "wristwatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF475F2819AA0B0100949223 /* Debug */,
@@ -398,21 +376,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkrave" */ = {
+		BF475F2A19AA0B0100949223 /* Build configuration list for PBXNativeTarget "wristwatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF475F2B19AA0B0100949223 /* Debug */,
 				BF475F2C19AA0B0100949223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "iWorkraveTests" */ = {
+		BF475F2D19AA0B0100949223 /* Build configuration list for PBXNativeTarget "wristwatchTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF475F2E19AA0B0100949223 /* Debug */,
 				BF475F2F19AA0B0100949223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

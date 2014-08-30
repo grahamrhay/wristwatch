@@ -1,6 +1,6 @@
 //
-//  iWorkraveTests.swift
-//  iWorkraveTests
+//  wristwatchTests.swift
+//  wristwatchTests
 //
 //  Created by Graham on 24/08/2014.
 //  Copyright (c) 2014 Look On My Works Ltd. All rights reserved.
@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-class iWorkraveTests: XCTestCase {
+class wristwatchTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

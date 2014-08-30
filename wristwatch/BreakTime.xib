@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.8"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MicroBreak" customModule="wristwatch" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="BreakTime" customModule="wristwatch" customModuleProvider="target">
             <connections>
                 <outlet property="progressBar" destination="WYy-Ea-5yB" id="Hzh-MJ-2xZ"/>
                 <outlet property="progressLabel" destination="V27-sD-n2d" id="ZOy-bl-AaC"/>

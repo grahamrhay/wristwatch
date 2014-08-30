@@ -1,5 +1,5 @@
 //
-//  MicroBreak.swift
+//  BreakTime.swift
 //  wristwatch
 //
 //  Created by Graham on 30/08/2014.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MicroBreak: NSWindowController {
+class BreakTime: NSWindowController {
     @IBOutlet weak var progressBar: NSProgressIndicator!
     @IBOutlet weak var progressLabel: NSTextField!
     

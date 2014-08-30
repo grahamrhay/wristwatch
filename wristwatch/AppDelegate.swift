@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var menuProgress: NSProgressIndicator!
     
     var timeForABreakWindow: NSWindow!
-    var microBreak: MicroBreak!
+    var breakTime: BreakTime!
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         acquirePrivileges()
@@ -109,9 +109,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startMicroBreak() {
-        microBreak = MicroBreak(windowNibName: "MicroBreak")
-        microBreak.setCallback(resetMicrobreak)
-        microBreak.startBreak()
+        breakTime = BreakTime(windowNibName: "BreakTime")
+        breakTime.setCallback(resetMicrobreak)
+        breakTime.startBreak()
     }
     
     func updateProgress() {
@@ -134,8 +134,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (countdownToMicroBreak > 0) {
             startTimer()
         } else {
-            if (microBreak != nil) {
-                microBreak.pauseBreak()
+            if (breakTime != nil) {
+                breakTime.pauseBreak()
             } else {
                 stillTyping()
             }

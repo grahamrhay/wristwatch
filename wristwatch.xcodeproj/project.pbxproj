@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF42B76C19B20337001610E3 /* MicroBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42B76A19B20337001610E3 /* MicroBreak.swift */; };
-		BF42B76D19B20337001610E3 /* MicroBreak.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF42B76B19B20337001610E3 /* MicroBreak.xib */; };
+		BF42B76C19B20337001610E3 /* BreakTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42B76A19B20337001610E3 /* BreakTime.swift */; };
+		BF42B76D19B20337001610E3 /* BreakTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF42B76B19B20337001610E3 /* BreakTime.xib */; };
 		BF475F1419AA0B0000949223 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F1319AA0B0000949223 /* main.swift */; };
 		BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF475F1519AA0B0000949223 /* AppDelegate.swift */; };
 		BF475F1819AA0B0000949223 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF475F1719AA0B0000949223 /* Images.xcassets */; };
@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF42B76A19B20337001610E3 /* MicroBreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicroBreak.swift; sourceTree = "<group>"; };
-		BF42B76B19B20337001610E3 /* MicroBreak.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MicroBreak.xib; sourceTree = "<group>"; };
+		BF42B76A19B20337001610E3 /* BreakTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTime.swift; sourceTree = "<group>"; };
+		BF42B76B19B20337001610E3 /* BreakTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreakTime.xib; sourceTree = "<group>"; };
 		BF475F0E19AA0B0000949223 /* wristwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wristwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF475F1219AA0B0000949223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF475F1319AA0B0000949223 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				BF475F1519AA0B0000949223 /* AppDelegate.swift */,
-				BF42B76A19B20337001610E3 /* MicroBreak.swift */,
-				BF42B76B19B20337001610E3 /* MicroBreak.xib */,
+				BF42B76A19B20337001610E3 /* BreakTime.swift */,
+				BF42B76B19B20337001610E3 /* BreakTime.xib */,
 				BF475F3A19AB8F8300949223 /* TimeForABreak.swift */,
 				BF475F1719AA0B0000949223 /* Images.xcassets */,
 				BF475F1919AA0B0000949223 /* MainMenu.xib */,
@@ -182,7 +182,7 @@
 			files = (
 				BF475F1819AA0B0000949223 /* Images.xcassets in Resources */,
 				BF475F1B19AA0B0000949223 /* MainMenu.xib in Resources */,
-				BF42B76D19B20337001610E3 /* MicroBreak.xib in Resources */,
+				BF42B76D19B20337001610E3 /* BreakTime.xib in Resources */,
 				BF475F3D19AB8F8300949223 /* TimeForABreak.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +203,7 @@
 			files = (
 				BF475F3C19AB8F8300949223 /* TimeForABreak.swift in Sources */,
 				BF475F1619AA0B0000949223 /* AppDelegate.swift in Sources */,
-				BF42B76C19B20337001610E3 /* MicroBreak.swift in Sources */,
+				BF42B76C19B20337001610E3 /* BreakTime.swift in Sources */,
 				BF475F1419AA0B0000949223 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

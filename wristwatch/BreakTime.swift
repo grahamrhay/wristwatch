@@ -22,6 +22,7 @@ class BreakTime: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
+        self.window.title = "Micro-break"
         progressBar.maxValue = Double(breakRemaining)
         updateProgress()
     }

@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="progressBar" destination="WYy-Ea-5yB" id="Hzh-MJ-2xZ"/>
                 <outlet property="progressLabel" destination="V27-sD-n2d" id="ZOy-bl-AaC"/>
-                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="laL-n7-JJ8"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -45,7 +45,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="362.5" y="269.5"/>
+            <point key="canvasLocation" x="381.5" y="243.5"/>
         </window>
     </objects>
 </document>

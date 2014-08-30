@@ -20,6 +20,7 @@ class BreakTime: NSWindowController {
     
     var title: String!
     var duration: Int!
+    var skipped = false
     
     convenience init(windowNibName: String!, title: String, duration: Int) {
         self.init(windowNibName: windowNibName)
@@ -43,6 +44,10 @@ class BreakTime: NSWindowController {
     }
     
     func startBreakTimer() {
+        if (skipped) {
+            return
+        }
+        
         breakTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target: self,
             selector: Selector("tick"),
@@ -60,10 +65,15 @@ class BreakTime: NSWindowController {
         progressLabel.stringValue = NSString(format: "%02d:%02d:%02d", 0, 0, breakRemaining)
         
         if (breakRemaining == 0) {
-            self.close()
-            if (callback != nil) {
-                callback()
-            }
+            breakTimeOver()
+        }
+    }
+    
+    func breakTimeOver() {
+        breakTimer.invalidate()
+        self.close()
+        if (callback != nil) {
+            callback()
         }
     }
     
@@ -83,5 +93,10 @@ class BreakTime: NSWindowController {
     
     func setCallback(cb: () -> Void) {
         callback = cb
+    }
+    
+    @IBAction func skipButton(sender: AnyObject) {
+        skipped = true
+        breakTimeOver()
     }
 }

@@ -110,7 +110,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func startMicroBreak() {
         breakTime = BreakTime(windowNibName: "BreakTime")
-        breakTime.setCallback(resetMicrobreak)
+        breakTime.setCallback({() -> Void in
+            self.resetMicrobreak()
+            self.breakTime = nil
+        })
         breakTime.startBreak()
     }
     

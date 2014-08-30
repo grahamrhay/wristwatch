@@ -28,6 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var popupWindow: NSWindow!
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
+        acquirePrivileges()
+        
         let mask = (NSEventMask.KeyDownMask | NSEventMask.MouseMovedMask)
         let eventMonitor: AnyObject! = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handlerEvent)
         
@@ -43,6 +45,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         progressIndicator.maxValue = Double(countdownToMicroBreak)
         menuProgress.maxValue = Double(countdownToMicroBreak)
         updateProgress()
+    }
+    
+    func acquirePrivileges() -> Bool {
+        let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
+        let privOptions = [trusted: true]
+        let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
+        if accessEnabled != 1 {
+            let alert = NSAlert()
+            alert.messageText = "Enable iWorkrave"
+            alert.informativeText = "Once you have enabled iWorkrave in System Preferences, click OK and restart the app"
+            alert.beginSheetModalForWindow(self.window, completionHandler: { response in
+                NSApplication.sharedApplication().terminate(self)
+            })
+        }
+        return accessEnabled == 1
     }
     
     func tick() {

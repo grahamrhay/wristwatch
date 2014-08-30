@@ -26,7 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
     
-    var popupWindow: NSWindow!
+    var timeForABreakWindow: NSWindow!
+    var microBreak: MicroBreak!
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         acquirePrivileges()
@@ -87,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func timeForABreak() {
         let tfab = TimeForABreak(windowNibName: "TimeForABreak")
         tfab.showWindow(nil)
-        popupWindow = tfab.window
+        timeForABreakWindow = tfab.window
         stillTyping()
     }
     
@@ -103,8 +104,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func stoppedTyping() {
-        popupWindow.close()
-        resetMicrobreak()
+        timeForABreakWindow.close()
+        startMicroBreak()
+    }
+    
+    func startMicroBreak() {
+        microBreak = MicroBreak(windowNibName: "MicroBreak")
+        microBreak.setCallback(resetMicrobreak)
+        microBreak.startBreak()
     }
     
     func updateProgress() {
@@ -127,7 +134,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (countdownToMicroBreak > 0) {
             startTimer()
         } else {
-            stillTyping()
+            if (microBreak != nil) {
+                microBreak.pauseBreak()
+            } else {
+                stillTyping()
+            }
         }
     }
     

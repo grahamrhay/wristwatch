@@ -82,9 +82,9 @@
 				BF475F1519AA0B0000949223 /* AppDelegate.swift */,
 				BF42B76A19B20337001610E3 /* BreakTime.swift */,
 				BF42B76B19B20337001610E3 /* BreakTime.xib */,
-				BF475F3A19AB8F8300949223 /* TimeForABreak.swift */,
 				BF475F1719AA0B0000949223 /* Images.xcassets */,
 				BF475F1919AA0B0000949223 /* MainMenu.xib */,
+				BF475F3A19AB8F8300949223 /* TimeForABreak.swift */,
 				BF475F3B19AB8F8300949223 /* TimeForABreak.xib */,
 				BF475F1119AA0B0000949223 /* Supporting Files */,
 			);

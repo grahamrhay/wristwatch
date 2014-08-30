@@ -19,9 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
     var stopTypingTimer: NSTimer!
-    
+
+    var timeTillMicroBreak = (3 * 60) + 30
     var countdownToMicroBreak = 0
-    var countdownToRestBreak = 60 * 45
+    var microBreakDuration = 30
+
+    var timeTillRestBreak = 45 * 60
+    var countdownToRestBreak = 0
+    var restBreakDuration = 10 * 60
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
@@ -33,9 +38,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         acquirePrivileges()
         listenForEvents()
         createStatusBarItem()
-        resetMicrobreak()
-        progressIndicator.maxValue = Double(countdownToMicroBreak)
-        menuProgress.maxValue = Double(countdownToMicroBreak)
+        progressIndicator.maxValue = Double(timeTillMicroBreak)
+        menuProgress.maxValue = Double(timeTillMicroBreak)
+        restBreakProgress.maxValue = Double(timeTillRestBreak)
+        resetRestBreak()
     }
     
     func listenForEvents() {
@@ -54,10 +60,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.view = statusView
     }
     
-    func resetMicrobreak() {
-        //countdownToMicroBreak = (60 * 3) + 30 // 3 mins & 30 seconds
-        countdownToMicroBreak = 5
+    func resetMicroBreak() {
+        countdownToMicroBreak = timeTillMicroBreak
         updateProgress()
+    }
+    
+    func resetRestBreak() {
+        countdownToRestBreak = timeTillRestBreak
+        resetMicroBreak()
     }
     
     func acquirePrivileges() -> Bool {
@@ -77,11 +87,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func tick() {
         countdownToMicroBreak--
-        if (countdownToMicroBreak == 0) {
+        countdownToRestBreak--
+        if (countdownToMicroBreak == 0 || countdownToRestBreak == 0) {
             stopTimer()
             timeForABreak()
         }
-        countdownToRestBreak--
         updateProgress()
     }
     
@@ -105,13 +115,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func stoppedTyping() {
         timeForABreakWindow.close()
-        startMicroBreak()
+        if (countdownToRestBreak == 0) {
+            startRestBreak()
+        } else {
+            startMicroBreak()
+        }
     }
     
     func startMicroBreak() {
-        breakTime = BreakTime(windowNibName: "BreakTime")
+        startBreak("Micro-break", duration: microBreakDuration, resetMicroBreak)
+    }
+    
+    func startRestBreak() {
+        startBreak("Rest break", duration: restBreakDuration, resetRestBreak)
+    }
+    
+    func startBreak(title: String, duration: Int, next: () -> Void) {
+        breakTime = BreakTime(windowNibName: "BreakTime", title: title, duration: duration)
         breakTime.setCallback({() -> Void in
-            self.resetMicrobreak()
+            next()
             self.breakTime = nil
         })
         breakTime.startBreak()
@@ -123,7 +145,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         progressIndicator.incrementBy(Double(countdownToMicroBreak) - progressIndicator.doubleValue)
         menuProgress.incrementBy(Double(countdownToMicroBreak) - menuProgress.doubleValue)
-        restBreakProgress.incrementBy(Double(countdownToRestBreak) - progressIndicator.doubleValue)
+        restBreakProgress.incrementBy(Double(countdownToRestBreak) - restBreakProgress.doubleValue)
     }
     
     func formatInterval(totalSeconds: (Int)) -> NSString {

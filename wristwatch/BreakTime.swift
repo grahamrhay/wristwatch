@@ -16,13 +16,22 @@ class BreakTime: NSWindowController {
     var pauseTimer: NSTimer!
     var callback: (() -> Void)!
     
-    //var breakRemaining = 30
-    var breakRemaining = 5
+    var breakRemaining = 0
+    
+    var title: String!
+    var duration: Int!
+    
+    convenience init(windowNibName: String!, title: String, duration: Int) {
+        self.init(windowNibName: windowNibName)
+        self.title = title
+        self.duration = duration
+    }
 
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        self.window.title = "Micro-break"
+        self.window.title = title
+        breakRemaining = duration
         progressBar.maxValue = Double(breakRemaining)
         updateProgress()
     }

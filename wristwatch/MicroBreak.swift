@@ -28,6 +28,10 @@ class MicroBreak: NSWindowController {
     
     func startBreak() {
         self.showWindow(nil)
+        startBreakTimer()
+    }
+    
+    func startBreakTimer() {
         breakTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target: self,
             selector: Selector("tick"),
@@ -53,6 +57,17 @@ class MicroBreak: NSWindowController {
     }
     
     func pauseBreak() {
+        if (breakTimer != nil) {
+            breakTimer.invalidate()
+        }
+        if (pauseTimer != nil) {
+            pauseTimer.invalidate()
+        }
+        pauseTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target: self,
+            selector: Selector("startBreakTimer"),
+            userInfo: nil,
+            repeats: false)
     }
     
     func setCallback(cb: () -> Void) {

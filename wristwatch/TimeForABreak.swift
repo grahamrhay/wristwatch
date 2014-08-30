@@ -9,11 +9,13 @@
 import Cocoa
 
 class TimeForABreak: NSWindowController {
-
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    
+    convenience init(windowNibName: String!, title: String, duration: Int) {
+        self.init(windowNibName: windowNibName)
+        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
     }
     
+    override func windowDidLoad() {
+        super.windowDidLoad()
+    }
 }

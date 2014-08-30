@@ -25,6 +25,7 @@ class BreakTime: NSWindowController {
         self.init(windowNibName: windowNibName)
         self.title = title
         self.duration = duration
+        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
     }
 
     override func windowDidLoad() {

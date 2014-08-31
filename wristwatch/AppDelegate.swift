@@ -196,5 +196,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification?) {
         stopTimer()
     }
+    
+    @IBAction func microButtonPressed(sender: AnyObject) {
+        stopTimer()
+        startMicroBreak()
+    }
+    
+    @IBAction func restButtonPressed(sender: AnyObject) {
+        stopTimer()
+        startRestBreak()
+    }
 }
 

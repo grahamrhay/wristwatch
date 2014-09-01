@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var timeForABreakWindow: NSWindow!
     var breakTime: BreakTime!
+    var intervalFormatter = IntervalFormatter()
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         acquirePrivileges()
@@ -140,19 +141,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func updateProgress() {
-        label1.stringValue = formatInterval(countdownToMicroBreak)
-        restBreakLabel.stringValue = formatInterval(countdownToRestBreak)
+        label1.stringValue = intervalFormatter.format(countdownToMicroBreak)
+        restBreakLabel.stringValue = intervalFormatter.format(countdownToRestBreak)
         
         progressIndicator.incrementBy(Double(countdownToMicroBreak) - progressIndicator.doubleValue)
         menuProgress.incrementBy(Double(countdownToMicroBreak) - menuProgress.doubleValue)
         restBreakProgress.incrementBy(Double(countdownToRestBreak) - restBreakProgress.doubleValue)
-    }
-    
-    func formatInterval(totalSeconds: (Int)) -> NSString {
-        var seconds = totalSeconds % 60
-        var minutes = (totalSeconds / 60) % 60
-        var hours = (totalSeconds / 3600)
-        return NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {

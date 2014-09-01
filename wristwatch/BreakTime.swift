@@ -22,6 +22,8 @@ class BreakTime: NSWindowController {
     var duration: Int!
     var skipped = false
     
+    var intervalFormatter = IntervalFormatter()
+    
     convenience init(windowNibName: String!, title: String, duration: Int) {
         self.init(windowNibName: windowNibName)
         self.title = title
@@ -62,7 +64,7 @@ class BreakTime: NSWindowController {
     
     func updateProgress() {
         progressBar.incrementBy(Double(breakRemaining) - progressBar.doubleValue)
-        progressLabel.stringValue = NSString(format: "%02d:%02d:%02d", 0, 0, breakRemaining)
+        progressLabel.stringValue = intervalFormatter.format(breakRemaining)
         
         if (breakRemaining == 0) {
             breakTimeOver()

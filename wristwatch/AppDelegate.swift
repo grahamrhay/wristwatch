@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainTimer: NSTimer!
     var waitTimer: NSTimer!
     var stopTypingTimer: NSTimer!
+    var idleTimer: NSTimer!
 
     var timeTillMicroBreak = (3 * 60) + 30
     var countdownToMicroBreak = 0
@@ -27,6 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var timeTillRestBreak = 45 * 60
     var countdownToRestBreak = 0
     var restBreakDuration = 10 * 60
+    
+    var idleTime = 0
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
@@ -90,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         countdownToMicroBreak--
         countdownToRestBreak--
         if (countdownToMicroBreak == 0 || countdownToRestBreak == 0) {
-            stopTimer()
+            stopForBreak()
             timeForABreak()
         }
         updateProgress()
@@ -109,12 +112,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         stopTypingTimer = NSTimer.scheduledTimerWithTimeInterval(3.0,
             target: self,
-            selector: Selector("stoppedTyping"),
+            selector: Selector("readyForBreak"),
             userInfo: nil,
             repeats: false)
     }
     
-    func stoppedTyping() {
+    func readyForBreak() {
         timeForABreakWindow.close()
         if (countdownToRestBreak == 0) {
             startRestBreak()
@@ -175,9 +178,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         waitTimer = NSTimer.scheduledTimerWithTimeInterval(3.0,
             target: self,
-            selector: Selector("stopTimer"),
+            selector: Selector("stoppedTyping"),
             userInfo: nil,
             repeats: false)
+        
+        stopIdleTimer()
+    }
+    
+    func stopIdleTimer() {
+        idleTime = 0
+        if (idleTimer != nil) {
+            idleTimer.invalidate()
+            idleTimer = nil
+        }
+    }
+    
+    func stoppedTyping() {
+        stopTimer()
+        idleTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target: self,
+            selector: Selector("idleTick"),
+            userInfo: nil,
+            repeats: true)
     }
     
     func stopTimer() {
@@ -186,18 +208,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             mainTimer = nil
         }
     }
-
-    func applicationWillTerminate(aNotification: NSNotification?) {
+    
+    func stopForBreak() {
         stopTimer()
     }
     
+    func idleTick() {
+        idleTime++
+        NSLog("Idle: %d", idleTime)
+        if (idleTime > microBreakDuration && countdownToMicroBreak < timeTillMicroBreak) {
+            resetMicroBreak()
+        }
+        if (idleTime > restBreakDuration) {
+            resetRestBreak()
+            stopIdleTimer()
+        }
+    }
+
+    func applicationWillTerminate(aNotification: NSNotification?) {
+        stopForBreak()
+    }
+    
     @IBAction func microButtonPressed(sender: AnyObject) {
-        stopTimer()
+        stopForBreak()
         startMicroBreak()
     }
     
     @IBAction func restButtonPressed(sender: AnyObject) {
-        stopTimer()
+        stopForBreak()
         startRestBreak()
     }
 }

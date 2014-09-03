@@ -210,6 +210,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func stopForBreak() {
+        stopIdleTimer()
         stopTimer()
     }
     

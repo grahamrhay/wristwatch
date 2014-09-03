@@ -12,7 +12,6 @@ class IntervalFormatter {
     func format(totalSeconds: (Int)) -> NSString {
         var seconds = totalSeconds % 60
         var minutes = (totalSeconds / 60) % 60
-        var hours = (totalSeconds / 3600)
-        return NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        return NSString(format: "%02d:%02d", minutes, seconds)
     }
 }

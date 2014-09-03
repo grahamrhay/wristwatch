@@ -9,13 +9,8 @@
 import Cocoa
 
 class TimeForABreak: NSWindowController {
-    
-    convenience init(windowNibName: String!, title: String, duration: Int) {
-        self.init(windowNibName: windowNibName)
-        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
-    }
-    
     override func windowDidLoad() {
+        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
         super.windowDidLoad()
     }
 }

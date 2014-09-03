@@ -220,7 +220,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func idleTick() {
         idleTime++
-        NSLog("Idle: %d", idleTime)
         if (idleTime > microBreakDuration && countdownToMicroBreak < timeTillMicroBreak) {
             resetMicroBreak()
         }

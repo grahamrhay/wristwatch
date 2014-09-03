@@ -119,7 +119,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func readyForBreak() {
         timeForABreakWindow.close()
-        if (countdownToRestBreak == 0) {
+        if (countdownToRestBreak <= 0) {
             startRestBreak()
         } else {
             startMicroBreak()

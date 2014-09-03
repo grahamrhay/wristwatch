@@ -92,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func tick() {
         countdownToMicroBreak--
         countdownToRestBreak--
-        if (countdownToMicroBreak == 0 || countdownToRestBreak == 0) {
+        if (countdownToMicroBreak <= 0 || countdownToRestBreak <= 0) {
             stopForBreak()
             timeForABreak()
         }

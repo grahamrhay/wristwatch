@@ -71,10 +71,10 @@ class BreakTime: NSWindowController {
         }
     }
     
-    func breakTimeOver() {
+    func breakTimeOver(cancelled: Bool = false) {
         breakTimer.invalidate()
         self.close()
-        if (callback != nil) {
+        if (!cancelled && callback != nil) {
             callback()
         }
     }
@@ -100,5 +100,9 @@ class BreakTime: NSWindowController {
     @IBAction func skipButton(sender: AnyObject) {
         skipped = true
         breakTimeOver()
+    }
+    
+    func cancel() {
+        breakTimeOver(cancelled: true)
     }
 }

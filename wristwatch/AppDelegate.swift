@@ -212,6 +212,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func stopForBreak() {
         stopIdleTimer()
         stopTimer()
+        
+        if (breakTime != nil) {
+            breakTime.cancel()
+        }
     }
     
     func idleTick() {

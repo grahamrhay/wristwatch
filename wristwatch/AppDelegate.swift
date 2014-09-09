@@ -119,6 +119,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func readyForBreak() {
         timeForABreakWindow.close()
+        timeForABreakWindow = nil
         if (countdownToRestBreak <= 0) {
             startRestBreak()
         } else {
@@ -153,15 +154,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
-        if (countdownToMicroBreak > 0) {
-            startTimer()
-        } else {
-            if (breakTime != nil) {
-                breakTime.pauseBreak()
-            } else {
-                stillTyping()
-            }
+        if (breakTime != nil) {
+            breakTime.pauseBreak()
+            return
         }
+ 
+        if (timeForABreakWindow != nil) {
+            stillTyping()
+            return
+        }
+
+        startTimer()
     }
     
     func startTimer() {

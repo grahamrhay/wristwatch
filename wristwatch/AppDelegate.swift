@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var countdownToRestBreak = 0
     var restBreakDuration = 10 * 60
     
-    var idleTime = 0
+    var lastActivity: NSDate!
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
@@ -154,6 +154,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
+        lastActivity = NSDate()
+
         if (breakTime != nil) {
             breakTime.pauseBreak()
             return
@@ -189,7 +191,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func stopIdleTimer() {
-        idleTime = 0
         if (idleTimer != nil) {
             idleTimer.invalidate()
             idleTimer = nil
@@ -222,14 +223,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func idleTick() {
-        idleTime++
-        if (idleTime > microBreakDuration && countdownToMicroBreak < timeTillMicroBreak) {
+        var secondsIdle = secondsSinceLastActivity()
+        if (secondsIdle > microBreakDuration && countdownToMicroBreak < timeTillMicroBreak) {
             resetMicroBreak()
         }
-        if (idleTime > restBreakDuration) {
+        if (secondsIdle > restBreakDuration) {
             resetRestBreak()
             stopIdleTimer()
         }
+    }
+
+    func secondsSinceLastActivity() -> Int {
+        return Int(NSDate().timeIntervalSinceDate(lastActivity))
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {

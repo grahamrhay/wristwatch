@@ -136,6 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startBreak(title: String, duration: Int, next: () -> Void) {
+        stopIdleTimer()
         breakTime = BreakTime(windowNibName: "BreakTime", title: title, duration: duration)
         breakTime.setCallback({() -> Void in
             next()

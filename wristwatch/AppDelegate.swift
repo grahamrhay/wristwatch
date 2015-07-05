@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func acquirePrivileges() -> Bool {
         let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
-        let privOptions = [trusted: true]
+        let privOptions = [trusted as String: true]
         let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
         if accessEnabled != 1 {
             let alert = NSAlert()

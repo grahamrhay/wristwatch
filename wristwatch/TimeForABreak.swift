@@ -10,7 +10,7 @@ import Cocoa
 
 class TimeForABreak: NSWindowController {
     override func windowDidLoad() {
-        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
+        window?.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
         super.windowDidLoad()
     }
 }

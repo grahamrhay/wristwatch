@@ -28,13 +28,13 @@ class BreakTime: NSWindowController {
         self.init(windowNibName: windowNibName)
         self.title = title
         self.duration = duration
-        self.window.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
+        window?.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey)))
     }
 
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        self.window.title = title
+        window?.title = title
         breakRemaining = duration
         progressBar.maxValue = Double(breakRemaining)
         updateProgress()

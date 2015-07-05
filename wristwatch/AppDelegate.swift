@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var countdownToRestBreak = 0
     let restBreakDuration = 10 * 60
     
-    var lastActivity: NSDate!
+    var lastActivity = NSDate()
     
     var statusItem: NSStatusItem! // need to keep a reference to this, or it gets removed from the menu bar
     var menuProgress: NSProgressIndicator!
@@ -155,8 +155,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handlerEvent(aEvent: (NSEvent!)) -> Void {
-        lastActivity = NSDate()
-
         if (breakTime != nil) {
             breakTime.pauseBreak()
             return
@@ -166,7 +164,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             stillTyping()
             return
         }
-
+        
+        checkLastActivity();
+        
+        lastActivity = NSDate()
+        
         startTimer()
     }
     
@@ -202,7 +204,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         stopTimer()
         idleTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target: self,
-            selector: Selector("idleTick"),
+            selector: Selector("checkLastActivity"),
             userInfo: nil,
             repeats: true)
     }
@@ -223,7 +225,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func idleTick() {
+    func checkLastActivity() {
         var secondsIdle = secondsSinceLastActivity()
         if (secondsIdle > microBreakDuration && countdownToMicroBreak < timeTillMicroBreak) {
             resetMicroBreak()

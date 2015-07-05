@@ -38,14 +38,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var breakTime: BreakTime!
     var intervalFormatter = IntervalFormatter()
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         acquirePrivileges()
         listenForEvents()
         createStatusBarItem()
-        progressIndicator.maxValue = Double(timeTillMicroBreak)
-        menuProgress.maxValue = Double(timeTillMicroBreak)
-        restBreakProgress.maxValue = Double(timeTillRestBreak)
-        resetRestBreak()
+        updateProgressBars()
+        loadData()
+        updateProgress()
+    }
+    
+    func applicationWillTerminate(aNotification: NSNotification) {
+        saveData()
     }
     
     func listenForEvents() {
@@ -62,6 +67,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menuProgress.controlTint = NSControlTint.BlueControlTint
         statusView.addSubview(menuProgress)
         statusItem.view = statusView
+    }
+    
+    func updateProgressBars() {
+        progressIndicator.maxValue = Double(timeTillMicroBreak)
+        menuProgress.maxValue = Double(timeTillMicroBreak)
+        restBreakProgress.maxValue = Double(timeTillRestBreak)
+    }
+    
+    func loadData() {
+        countdownToMicroBreak = getUserDefault("countdownToMicroBreak", defaultValue: timeTillMicroBreak)
+        countdownToRestBreak = getUserDefault("countdownToRestBreak", defaultValue: timeTillRestBreak)
+    }
+    
+    func saveData() {
+        defaults.setInteger(countdownToMicroBreak, forKey: "countdownToMicroBreak")
+        defaults.setInteger(countdownToRestBreak, forKey: "countdownToRestBreak")
+    }
+    
+    func getUserDefault(key: String, defaultValue: Int) -> Int {
+        if (defaults.objectForKey(key) != nil) {
+            return defaults.integerForKey(key)
+        } else {
+            return defaultValue
+        }
     }
     
     func resetMicroBreak() {
@@ -235,7 +264,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             stopIdleTimer()
         }
     }
-
+    
     func secondsSinceLastActivity() -> Int {
         return Int(NSDate().timeIntervalSinceDate(lastActivity))
     }

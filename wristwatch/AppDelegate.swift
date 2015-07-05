@@ -21,13 +21,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var stopTypingTimer: NSTimer!
     var idleTimer: NSTimer!
 
-    var timeTillMicroBreak = (3 * 60) + 30
+    let timeTillMicroBreak = (3 * 60) + 30
     var countdownToMicroBreak = 0
-    var microBreakDuration = 30
+    let microBreakDuration = 30
 
-    var timeTillRestBreak = 45 * 60
+    let timeTillRestBreak = 45 * 60
     var countdownToRestBreak = 0
-    var restBreakDuration = 10 * 60
+    let restBreakDuration = 10 * 60
     
     var lastActivity: NSDate!
     
